@@ -9,26 +9,29 @@ export class User {
 
     // GET
     static getUserByEmail(email) {
-        return this.user().find({ email: email }).toArray();
+        return this.user().findOne({ email: email }).toArray();
     }
     static getAllUser() {
         return this.user().find({}).toArray();
     }
     static getUserById(id) {
         id = ObjectId.createFromHexString(id)
-        return this.user().find({ _id: id }).toArray();
+        return this.user().findOne({ _id: id }).toArray();
     }
+
+    static getUserByUsername(username){
+        return this.user().findOne({ username: username }).toArray();
+    }
+
     static getUserByAuthor(author) {
-        return this.user().find({ author: author }).toArray();
+        return this.user().findOne({ author: author }).toArray();
     }
 
     // POST / CREATE
     static addUser(paying) {
-        return this.user().insertOne({
-            ...paying,
-            date: new Date(),
-            password: hashSync(paying.password)
-        })
+        paying.password = hashSync(paying.password,10)
+        paying.createAt = new Date(Date.now())
+        return this.user().insertOne(paying)
     }
 
     // PUT / UPDATE

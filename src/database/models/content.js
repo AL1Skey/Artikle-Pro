@@ -16,16 +16,20 @@ export class Content{
     static getContentByAuthor(author){
         return this.content().find({author:author}).toArray();
     }
+    static getContentByAuthorId(authorId){
+        return this.content().find({authorId:authorId}).toArray();
+    }
 
     // POST / CREATE
     static addContent(paying){
-        return this.content().insertOne(paying)
+        
+        return this.content().insertOne({...paying,authorId:ObjectId.createFromHexString(paying.authorId),createdAt:new Date(Date.now()),updatedAt:new Date(Date.now())})
     }
     
     // PUT / UPDATE
     static updateContent(id,paying){
         id = ObjectId.createFromHexString(id)
-        return this.content().updateOne({_id:id},{$set:paying})
+        return this.content().updateOne({_id:id},{$set:{...paying,updatedAt:new Date(Date.now())}})
     }
 
     // DELETE
