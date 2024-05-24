@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const page = () => {
 const data = async () => {
@@ -7,6 +8,7 @@ const data = async () => {
 
   return (
     <section>
+      <Navbar/>
       <h1>
       Latests Blog
       </h1>
