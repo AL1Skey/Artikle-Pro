@@ -8,5 +8,6 @@ export async function POST(request){
             message: "Invalid Input"
         })
     }
+    
     return Response.json(data);
 }
