@@ -6,7 +6,14 @@ export class Content{
     static content(){
         return database.collection("content")
     }
-    static getAllContent(){
+    static getAllContent(limit=null){
+        if(limit){
+            return this.content().aggregate([{
+                
+                $sort:{$or:[ {"createdAt":-1},{"updatedAt":-1 }]},
+                $limit: limit}
+        ]).toArray();
+        }
         return this.content().find({}).toArray();
     }
     static getContentById(id){
