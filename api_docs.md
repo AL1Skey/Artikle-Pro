@@ -82,7 +82,16 @@ GET:
 POST:
 > Request
 ```json
-
+{
+    "title":string,
+    "content":string
+}
+```
+> Response
+```json
+{
+    "message":"Successfully created"
+}
 ```
 
 ### /api/cms
