@@ -1,24 +1,27 @@
-"use client"
-import React from 'react'
-import Cookies from 'js-cookies'
+"use client";
+import React from "react";
+import Cookies from "js-cookies";
+import Image from "next/image";
+import image1 from "../../../public/Artikel.png";
+import Link from "next/link";
+
 const Navbar = () => {
-    const auth = Cookies.getItem('Authorization')
+  const auth = Cookies.getItem("Authorization");
   return (
-    <nav className="flex w-screen justify-between py-2 px-5 bg-slate-400">
-        <div className='flex gap-10'>
-
-        <div>Logo</div>
-        <form action="" className='flex'>
-            <input type="text" name="" id="" />
-            <button type="submit">Search</button>
-        </form>
+    <div className="w-screen h-20 bg-blue-200 flex gap-20 justify-between ">
+      <Link href="/home">
+        {" "}
+        <div className="ml-16">
+          <Image className="w-24" src={image1} />
         </div>
-        <ul className='flex'>
-            <li>Write</li>
-            <li>Logout</li>
-        </ul>
-    </nav>
-  )
-}
+      </Link>
+      <div className="mr-20 mt-7 flex gap-20 hover:text-blue-900">
+        <p>Artikel anda</p>
+      <Link href="/login">  <p>Login</p></Link>
 
-export default Navbar
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
