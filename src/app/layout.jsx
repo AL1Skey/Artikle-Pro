@@ -15,13 +15,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
   
+        
       <section>
       <Navbar/>
       <Artikel/>
       </section>
-        
       <body className={inter.className + " text-black bg-white"}>
-        {children}
+       
+      {children}
+       
      
       </body>
     </html>
