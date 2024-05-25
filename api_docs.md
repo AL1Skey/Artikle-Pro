@@ -3,29 +3,66 @@ Model
 ```json
 {
     "_id":ObjectId(),
-    "email":"",
-    "name":"",
-    "password":"",
-    "createdAt":""
+    "email":string,
+    "name":string,
+    "password":string,
+    "createdAt":DateTime
 }
 ```
 ## Content
 ```json
 {
     "_id":ObjectId(),
-    "author":"",
+    "author":string,
     "authorId":ObjectId(),
     "content":{
-        "title":"",
-        "content":""
+        "title":string,
+        "content":string
     },
-    "tags":[],
-    "createdAt":"",
-    "updatedAt":"",
+    "tags":Array(string),
+    "createdAt":Datetime,
+    "updatedAt":Datetime,
 }
 ```
 
 # API
+
+### /api/register
+POST:
+> Request
+```json
+{
+    "email":string,
+    "name":string,
+    "password":string,
+}
+```
+> Response
+```json
+{
+    "message":"user registration success"
+}
+```
+
+### /api/login
+POST:
+> Request
+```json
+{
+    "email"|"username":string,
+    "password":string
+}
+```
+> Response:
+```json
+cookies
+{
+    Authorization:token
+}
+```
+
+### /api/content
+GET:
 
 ### /api/cms
 GET:

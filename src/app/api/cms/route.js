@@ -6,7 +6,7 @@ export async function GET(){
     const auth = await cookies().get('Authorization').value
     const [type,token] = auth.split(" ")
     const {payload} = await joseReadPaylater(token)
-    const respondent =  await Content.getContentByAuthorId(decade.authorId)
+    const respondent =  await Content.getContentByAuthorId(payload.authorId)
 
     return Response.json(respondent);
 }
