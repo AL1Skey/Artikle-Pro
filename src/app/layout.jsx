@@ -21,9 +21,9 @@ export default function RootLayout({ children }) {
       <Artikel/>
       </section>
       <body className={inter.className + " text-black bg-white"}>
-        <section>
-        {children}
-        </section>
+       
+      {children}
+       
      
       </body>
     </html>
