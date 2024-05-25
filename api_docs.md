@@ -63,6 +63,27 @@ cookies
 
 ### /api/content
 GET:
+> Response
+```json
+10 *
+{
+    "_id":ObjectId(),
+    "author":string,
+    "authorId":ObjectId(),
+    "content":{
+        "title":string,
+        "content":string
+    },
+    "tags":Array(string),
+    "createdAt":Datetime,
+    "updatedAt":Datetime,
+}
+```
+POST:
+> Request
+```json
+
+```
 
 ### /api/cms
 GET:
@@ -81,8 +102,8 @@ GET:
     "tags":[],
     "createdAt":"",
     "updatedAt":"",
-},
-...
+    },
+    ...
    ]
 ```
 POST:
