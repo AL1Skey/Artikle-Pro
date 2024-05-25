@@ -6,12 +6,12 @@ import image2 from "../../../public/login2.png";
 const page = () => {
   return (
     <>
-      <div className="absolute ml-[35rem] mt-[13rem] flex">
+      <div className="w-[67vw] absolute ml-[33vw] mt-[13rem] flex">
         <div className="-mt-20">
-          <Image className="w-[35rem]" src={image2} />
+          <Image className="w-[30rem]" src={image2} />
         </div>
         <div>
-          <div className="border-2 w-80 rounded-md px-4 py-4 shadow-xl mt-8">
+          <div className="border-2 w-80 rounded-md px-4 py-4 shadow-xl -mt-[4vh]">
             <p className="text-2xl">Register</p>
             <form action="">
             <div class="mb-6">

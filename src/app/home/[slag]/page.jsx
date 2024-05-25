@@ -21,7 +21,7 @@ const page = () => {
 
   return(
    
-    <div className="absolute bg-blue-100 ml-[35rem] w-[58rem] mt-[10rem] rounded-md px-8 border-2 border-blue-300 py-4  overflow-y-auto h-[35rem]">
+    <div className="w-[65vw] absolute ml-[34vw] bg-blue-100 mt-[10rem] rounded-md px-8 border-2 border-blue-300 py-4  overflow-y-auto h-[34rem]">
         <p>{data1.author}</p>
         <p>{data1.content.title}</p>
         <p className="text-justify">{data1.content.content}</p>

@@ -6,9 +6,9 @@ import image2 from "../../../public/login.png";
 const page = () => {
   return (
     <>
-      <div className="absolute ml-[35rem] mt-[13rem] flex">
+      <div className="w-[67vw] absolute ml-[33vw] mt-[13rem] flex">
         <div>
-          <Image className="w-[35rem]" src={image2} />
+          <Image className="w-[30rem]" src={image2} />
         </div>
         <div>
           <div className="border-2 w-80 rounded-md px-4 py-4 shadow-xl mt-16">
@@ -38,7 +38,7 @@ const page = () => {
               </butt>
             </form>
             <p className="text-sm">
-              belumpunya akun?{" "}
+              belum punya akun?{" "}
               <Link href="/register">
                 {" "}
                 <span className="hover:text-blue-500 hover:underline">
