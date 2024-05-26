@@ -16,10 +16,15 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="mr-20 mt-7 flex gap-20 hover:text-blue-900">
-        <p>Artikel anda</p>
+        
+       <Link href="/profile"><p>Artikel anda</p></Link>
+        
       <Link href="/login">  <p>Login</p></Link>
+      
+      
 
       </div>
+      
     </div>
   );
 };
