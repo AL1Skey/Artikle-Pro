@@ -1,7 +1,6 @@
 import { jwtToken } from "@/app/helper/jwt";
 import { User } from "@/database/models/user";
 import { compareSync } from "bcrypt";
-import { cookies } from "next/headers";
 
 export async function POST(request){
     const body = await request.json();
@@ -17,7 +16,7 @@ export async function POST(request){
         return Response.json({"message":"Illegal Activity Detected. Please use Email or Username"})
     }
     else if (body.email && !body.username){
-    data = await User.getUserByEmail(body.email)
+        data = await User.getUserByEmail(body.email)
     }
 
     else if(!body.email && body.username){
@@ -38,7 +37,7 @@ export async function POST(request){
     }
 
     // Validation 4
-    const verify = compareSync(body.password,data[0].password);
+    const verify = compareSync(body.password,data.password);
     if(!verify){
         return Response.status(401).json({
             message: "Email or password is incorrect"
@@ -47,14 +46,12 @@ export async function POST(request){
     
     // Response
     const responden = {
-        id: data[0]._id,
-        name: data[0].name,
-        email: data[0].email
+        id: data._id,
+        name: data.name,
+        email: data.email
     }
 
     const access_token = jwtToken(responden)
-
-    await cookies().set("Authorization",`Bearer ${access_token}`)
 
     return Response.json({Authorization:`Bearer ${access_token}`});
 }
