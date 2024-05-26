@@ -9,24 +9,19 @@ export class User {
 
     // GET
     static getUserByEmail(email) {
-        return this.user().findOne({ email: email }).toArray();
+        return this.user().findOne({ email: email });
     }
     static getAllUser() {
         return this.user().find({}).toArray();
     }
     static getUserById(id) {
         id = ObjectId.createFromHexString(id)
-        return this.user().findOne({ _id: id }).toArray();
+        return this.user().findOne({ _id: id });
     }
 
     static getUserByUsername(username){
-        return this.user().findOne({ username: username }).toArray();
+        return this.user().findOne({ username: username });
     }
-
-    static getUserByAuthor(author) {
-        return this.user().findOne({ author: author }).toArray();
-    }
-
     // POST / CREATE
     static addUser(paying) {
         paying.password = hashSync(paying.password,10)

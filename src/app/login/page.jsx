@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import image2 from "../../../public/login.png";
+import { login } from "../actions/event";
 
 const page = () => {
   return (
@@ -13,11 +14,11 @@ const page = () => {
         <div>
           <div className="border-2 w-80 rounded-md px-4 py-4 shadow-xl mt-16">
             <p className="text-2xl">Login</p>
-            <form action="">
+            <form action={login}>
               <div class="mb-6">
                 <input
                   type="email"
-                  name="name"
+                  name="email"
                   id="name"
                   placeholder="email"
                   class="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
@@ -27,15 +28,15 @@ const page = () => {
               <div>
                 <input
                   type="password"
-                  name="email"
-                  id="email"
+                  name="password"
+                  id="password"
                   placeholder="password"
                   class="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600"
                 />
               </div>
-              <butt class="cursor-pointer py-2 px-4 block mt-6 bg-blue-500 text-white font-bold w-full text-center rounded">
+              <button class="cursor-pointer py-2 px-4 block mt-6 bg-blue-500 text-white font-bold w-full text-center rounded">
                 Login
-              </butt>
+              </button>
             </form>
             <p className="text-sm">
               belum punya akun?{" "}
