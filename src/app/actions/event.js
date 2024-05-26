@@ -23,6 +23,18 @@ export async function login(formData){
         redirect("/home")
     
 }
+export async function logout(){
+    await cookies().delete("Authorization")
+    redirect("/home")
+}
+
+export async function getUser(){
+    const auth = await cookies().get('Authorization').value
+    const [type,token] = auth.split(" ")
+    const {payload} = await joseReadPaylater(token)
+
+    return {...payload}
+}
 
 export async function register(formData){
     const form ={

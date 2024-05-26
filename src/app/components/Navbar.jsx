@@ -4,6 +4,7 @@ import Cookies from "js-cookies";
 import Image from "next/image";
 import image1 from "../../../public/Artikel.png";
 import Link from "next/link";
+import { logout } from "../actions/event";
 
 const Navbar = () => {
   const auth = Cookies.getItem("Authorization");
@@ -15,11 +16,19 @@ const Navbar = () => {
           <Image className="w-24" src={image1} />
         </div>
       </Link>
-      <div className="mr-20 mt-7 flex gap-20 hover:text-blue-900">
+      <div className="mr-20 mt-7 flex gap-20">
         
-       <Link href="/profile"><p>Artikel anda</p></Link>
+       
         
-      <Link href="/login">  <p>Login</p></Link>
+      {!auth ?
+        (<Link href="/login" className="hover:text-blue-900">  <p>Login</p></Link>):
+        (
+        <>
+        <Link href="/profile" className="hover:text-blue-900"><p>Artikel anda</p></Link>
+        <button className="-translate-y-[14px] hover:text-blue-900" onClick={()=>logout()}>  Logout</button>
+        </>
+        )
+      }
       
       
 
