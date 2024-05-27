@@ -2,21 +2,15 @@ import { joseReadPaylater } from "@/app/helper/jwt";
 import { Content } from "@/database/models/content";
 import { cookies } from "next/headers";
 
-export async function GET(){
-    const auth = await cookies().get('Authorization').value
-    const [type,token] = auth.split(" ")
-    const {payload} = await joseReadPaylater(token)
-    const respondent =  await Content.getContentByAuthorId(payload.authorId)
+export async function GET(request){
+    const id = request.cookies.getAll()
+    // const respondent =  await Content.getContentByAuthorId(id)
 
-    return Response.json(respondent);
+    return Response.json({id:request.locals});
 }
 
 export async function POST(request){
-    const body = await request.json();
-    const auth = await cookies().get('Authorization').value
-    const [type,token] = auth.split(" ")
-    const {payload} = await joseReadPaylater(token)
-    
-    const respondent =  await Content.addContent({...body,authorId:payload.id,author:payload.name});
+    const req = await request.json();
+    const respondent =  await Content.getContentByAuthorId(req.id)
     return Response.json(respondent);
 }

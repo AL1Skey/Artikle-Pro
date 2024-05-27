@@ -1,15 +1,14 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import image2 from "../../../public/login.png";
-import { login } from "../actions/event";
+import { login } from "../../actions/event";
 
 const page = () => {
   return (
     <>
       <div className="w-[67vw] absolute ml-[33vw] mt-[13rem] flex">
         <div>
-          <Image className="w-[30rem]" src={image2} />
+          <Image className="w-[30rem]" src="/login.png" width={400} height={400} alt="" />
         </div>
         <div>
           <div className="border-2 w-80 rounded-md px-4 py-4 shadow-xl mt-16">
