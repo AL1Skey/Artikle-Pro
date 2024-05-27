@@ -4,9 +4,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { Inter } from "next/font/google";
 export default function RootLayout({ children }) {
   return (
-    <>
-  
-        
+    <>        
       <section>
       <Navbar/>
       <Artikel/>
