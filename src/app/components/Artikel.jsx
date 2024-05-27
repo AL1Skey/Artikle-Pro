@@ -8,7 +8,7 @@ const Artikel = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/api/content");
+      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL +"/api/content");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
