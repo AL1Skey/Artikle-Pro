@@ -14,7 +14,14 @@ export async function GET(request){
 }
 
 export async function POST(request){
+
     const body = await request.json();
-    const respondent =  await Content.addContent(body);
-    return Response.json(respondent);
+    const data = await Content.addContent(body)
+    if(!data){
+        return Response.status(401).json({
+            message: "Invalid Input"
+        })
+    }
+    
+    return Response.json(data);
 }

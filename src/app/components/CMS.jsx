@@ -1,72 +1,31 @@
+"use client"
 import React from 'react'
+import { deleteArticle } from '../actions/event'
 
-const CMS = ({profile}) => {
+const CMS = ({ profile }) => {
+  
   return (
-  <div className="container h-screen w-screen  flex justify-center py-6">
-  <div className="w-1/2 h-full bg-slate-100 p-5 shadow-2xl rounded-lg  ">
-    <p className="text-center">{profile.author}</p>
-    
-    <div>
-      <div class="flex flex-col">
-        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="overflow-hidden">
-              <table class="min-w-full text-center">
-                <thead class="border-b">
-                  <tr>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4"
-                    >
-                      No
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4"
-                    >
-                      Judul
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4"
-                    >
-                      Update
-                    </th>
-                    <th
-                      scope="col"
-                      class="text-sm font-medium text-gray-900 px-6 py-4"
-                    >
-                      Delete
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="border-b bg-blue-100 border-blue-200">
-                    <td class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-                      1
-                    </td>
-                    <td class="text-sm text-gray-950 px-6 py-4 whitespace-nowrap">
-                      <p className="hover:underline hover:cursor-pointer">
-                        {" "}
-                        {profile.content.title}
-                      </p>
-                    </td>
-                    <td class="text-sm text-white px-6 py-4 whitespace-nowrap">
-                      <p className="bg-green-600 py-1 rounded-md">Update</p>
-                    </td>
-                    <td class="text-sm  text-white px-6 py-4 whitespace-nowrap">
-                      <p className="bg-red-500  py-1 rounded-md">Delete</p>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>)
+    <>
+      <tbody>
+        <tr class="border-b bg-blue-100 border-blue-200">
+          <td class="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
+            {profile.index}
+          </td>
+          <td class="text-sm text-gray-950 px-6 py-4 whitespace-nowrap">
+            <a className="hover:underline hover:cursor-pointer" href={process.env.NEXT_PUBLIC_BASE_URL+`/post/${profile._id}`}>
+              {" "}
+              {profile.content.title}
+            </a>
+          </td>
+          <td class="text-sm text-white px-6 py-4 whitespace-nowrap">
+            <a href={process.env.NEXT_PUBLIC_BASE_URL+`/update/${profile._id}`} className="bg-green-600 py-2 px-5 hover:bg-green-900 rounded-md">Update</a>
+          </td>
+          <td class="text-sm  text-white px-6 py-4 whitespace-nowrap">
+            <button onClick={()=>deleteArticle(profile._id)} className="bg-red-500  py-2 px-5 hover:bg-red-900 rounded-md">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </>)
 }
 
 export default CMS

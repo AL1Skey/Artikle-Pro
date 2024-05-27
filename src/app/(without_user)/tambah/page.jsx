@@ -1,4 +1,4 @@
-import React from "react";
+"use server"
 import FormTambah from "../../components/formTambah";
 
 const page = () => {

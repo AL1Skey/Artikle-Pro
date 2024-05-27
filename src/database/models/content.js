@@ -31,6 +31,7 @@ export class Content {
         return this.content().find({ author: author }).toArray();
     }
     static getContentByAuthorId(authorId) {
+        authorId = ObjectId.createFromHexString(authorId)
         return this.content().find({ authorId: authorId }).toArray();
     }
 

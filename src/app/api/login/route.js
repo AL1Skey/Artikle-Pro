@@ -1,6 +1,7 @@
 import { jwtToken } from "@/app/helper/jwt";
 import { User } from "@/database/models/user";
 import { compareSync } from "bcrypt";
+import { cookies } from "next/headers";
 
 export async function POST(request){
     const body = await request.json();

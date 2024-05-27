@@ -1,13 +1,15 @@
 import Navbar from "../components/Navbar";
 import "../globals.css";
+const inter = Inter({ subsets: ["latin"] });
+import { Inter } from "next/font/google";
 
 export default function RootLayout({children}) {
     return (
-        <html lang="en">
-           <body className={" text-black bg-white"}>
+        <>
+           <body className={inter.className+" text-black bg-white"}>
             <Navbar/>
             {children}
             </body>
-        </html>
+        </>
     );
 }

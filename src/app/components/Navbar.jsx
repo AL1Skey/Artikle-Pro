@@ -1,13 +1,18 @@
 "use client";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Cookies from "js-cookies";
 import Image from "next/image";
 import image1 from "../../../public/Artikel.png";
 import Link from "next/link";
 import { logout } from "../actions/event";
 
+
 const Navbar = () => {
-  const auth = Cookies.getItem("Authorization");
+  
+  const [auth,setAuth] =useState() 
+  useEffect(useCallback(()=>{
+    setAuth(Cookies.getItem("Authorization"))
+  },[auth]),[] );
   return (
     <div className="w-screen h-20 bg-blue-200 flex gap-20 justify-between ">
       <Link href="/home">
@@ -17,8 +22,6 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="mr-20 mt-7 flex gap-20">
-        
-       
         
       {!auth ?
         (<Link href="/login" className="hover:text-blue-900">  <p>Login</p></Link>):
