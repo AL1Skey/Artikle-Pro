@@ -6,7 +6,7 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/content/${params.slag}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/content/${params.slag}`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
