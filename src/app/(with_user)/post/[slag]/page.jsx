@@ -6,7 +6,7 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/content/${params.slag}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/content/${params.slag}`,{ cache: 'no-store' });
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }

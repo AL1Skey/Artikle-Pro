@@ -11,7 +11,7 @@ const page = () => {
       {" "}
 
       <div className="absolute text-9xl ml-[43rem] mt-[5rem] ">
-        <Image className="w-[40rem]" src={"/logo1.png"} width={400} height={400}/>
+        <Image className="w-[40rem]" src="/logo1.png" alt="" width={400} height={400}/>
 
       </div>
     </>

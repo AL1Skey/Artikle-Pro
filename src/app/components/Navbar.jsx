@@ -18,7 +18,7 @@ const Navbar = () => {
       <Link href="/home">
         {" "}
         <div className="ml-16">
-          <Image className="w-24" src={image1} />
+          <Image className="w-24" src={image1} alt=""/>
         </div>
       </Link>
       <div className="mr-20 mt-7 flex gap-20">

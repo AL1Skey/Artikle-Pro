@@ -8,6 +8,7 @@ const page = async() => {
   const {payload} = await joseReadPaylater(cookie.split(' ')[1])
   const profile = await fetch(process.env.NEXT_PUBLIC_BASE_URL+"/api/cms", {
     method: 'POST',
+    cache: 'no-store', 
     body: JSON.stringify({id:payload.id}),
     headers: {
         'Content-Type': 'application/json'

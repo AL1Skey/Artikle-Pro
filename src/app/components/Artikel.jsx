@@ -1,22 +1,8 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import Tambah from "./tambah";
 import Link from "next/link";
 
-const Artikel = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL +"/api/content");
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await response.json();
-      setData(data);
-    };
-    fetchData().catch((error) => console.error("Error fetching data:", error));
-  }, []);
+const Artikel = async() => {
+  const data = await fetch(process.env.NEXT_PUBLIC_BASE_URL +"/api/content").then((res)=>res.json())
 
   return (
     <div className="w-1/3 px-8 overflow-y-auto h-[40rem]">

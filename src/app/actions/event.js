@@ -12,6 +12,7 @@ export async function login(formData) {
 
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/login", {
     method: "POST",
+    cache: 'no-store' ,
     body: JSON.stringify(form),
     headers: {
       "Content-Type": "application/json",
@@ -41,6 +42,7 @@ export async function createArticle(formData) {
   };
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/content", {
     method: "POST",
+    cache: 'no-store',
     body: JSON.stringify(form),
     headers: {
       "Content-Type": "application/json",
@@ -65,6 +67,7 @@ export async function updateArticle(formData) {
       };
     const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/api/cms/${formData.get('_id')}`,{
         method: "PUT",
+        cache: 'no-store',
         body: JSON.stringify(form),
         headers: {
           "Content-Type": "application/json",
@@ -81,6 +84,7 @@ export async function updateArticle(formData) {
 export async function deleteArticle(id) {
     const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/api/cms/${id}`,{
         method: "DELETE",
+        cache: 'no-store',
         headers: {
           "Content-Type": "application/json",
         },
@@ -107,6 +111,7 @@ export async function register(formData) {
   };
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/register", {
     method: "POST",
+    cache: 'no-store',
     body: JSON.stringify(form),
     headers: {
       "Content-Type": "application/json",
