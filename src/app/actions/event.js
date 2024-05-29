@@ -37,8 +37,6 @@ export async function createArticle(formData) {
     author: payload.name,
     authorId: payload.id,
     content: { title: formData.get("title"), content: formData.get("content") },
-    createAt:  Date.now(),
-    updateAt:  Date.now(),
   };
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/content", {
     method: "POST",
@@ -55,15 +53,8 @@ export async function createArticle(formData) {
 }
 
 export async function updateArticle(formData) {
-    const cook = await cookies().get("Authorization").value;
-    const { payload } = await joseReadPaylater(cook.split(" ")[1]);
-    const dateupdate = Date.now()
     const form = {
-        author: payload.name,
-        authorId: payload.id,
-        content: { title: formData.get("title"), content: formData.get("content") },
-        createAt: new Date(formData.get("createAt")),
-        updateAt: dateupdate,
+        content: { title: formData.get("title"), content: formData.get("content") }
       };
     const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/api/cms/${formData.get('_id')}`,{
         method: "PUT",

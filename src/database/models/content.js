@@ -44,7 +44,7 @@ export class Content {
     // PUT / UPDATE
     static updateContent(id, paying) {
         id = ObjectId.createFromHexString(id)
-        return this.content().updateOne({ _id: id }, { $set: { ...paying, updatedAt: new Date(Date.now()) } })
+        return this.content().updateOne({ _id: id }, { $set: paying })
     }
 
     // DELETE

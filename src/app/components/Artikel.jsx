@@ -2,7 +2,7 @@ import Tambah from "./tambah";
 import Link from "next/link";
 
 const Artikel = async() => {
-  const data = await fetch(process.env.NEXT_PUBLIC_BASE_URL +"/api/content").then((res)=>res.json())
+  const data = await fetch(process.env.NEXT_PUBLIC_BASE_URL +"/api/content").then((res)=>res.json()).catch((err)=>{throw new Error(err)})
 
   return (
     <div className="w-1/3 px-8 overflow-y-auto h-[40rem]">
